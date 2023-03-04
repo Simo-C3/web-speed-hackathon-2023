@@ -4,6 +4,11 @@ import react from '@vitejs/plugin-react';
 import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import topLevelAwait from 'vite-plugin-top-level-await';
+import viteCompression from "vite-plugin-compression";
+import { visualizer } from 'rollup-plugin-visualizer';
+import  replace  from 'rollup-plugin-replace'
+import commonjs from 'rollup-plugin-commonjs'
+import {terser} from 'rollup-plugin-terser'
 
 import { getFileList } from './tools/get_file_list';
 
@@ -30,9 +35,19 @@ export default defineConfig(async () => {
         output: {
           experimentalMinChunkSize: 40960,
         },
+        plugins: [
+          visualizer({
+            open: true,
+            filename: 'dist/stats.html',
+            gzipSize: true,
+            brotliSize: true,
+          }),
+          replace({'process.env.NODE_ENV': JSON.stringify('production')}),
+          commonjs(),
+          terser()
+        ],
       },
       target: 'es2022',
-      postcss: {map: false},
       sourcemap: false,
     },
     plugins: [
@@ -43,7 +58,13 @@ export default defineConfig(async () => {
         title: '買えるオーガニック',
         videos,
       }),
-      splitVendorChunkPlugin()
+      splitVendorChunkPlugin(),
+      viteCompression()
     ],
+    css: {
+      postcss: {
+        map: false,
+      },
+    },
   };
 });
