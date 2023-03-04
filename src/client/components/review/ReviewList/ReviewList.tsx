@@ -3,6 +3,7 @@ import type { FC } from 'react';
 import type { ReviewFragmentResponse } from '../../../graphql/fragments';
 import { AspectRatio } from '../../foundation/AspectRatio';
 import { Image } from '../../foundation/Image';
+import dayjs from '../../../utils/dayjs';
 
 import * as styles from './ReviewList.styles';
 
@@ -18,20 +19,13 @@ export const ReviewList: FC<Props> = ({ reviews }) => {
   return (
     <ul className={styles.itemList()}>
       {reviews.map((review) => {
-        const endTime = window.Temporal.Instant.from(review.postedAt).toLocaleString('ja-jp', {
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit',
-          month: '2-digit',
-          second: '2-digit',
-          year: 'numeric',
-        });
+        const endTime = dayjs(review.postedAt).format('YYYY/MM/DD hh:mm:ss');
 
         return (
           <li key={review.id} className={styles.item()} data-testid="review-list-item">
             <div className={styles.avaterImage()}>
               <AspectRatio ratioHeight={1} ratioWidth={1}>
-                <Image height={52} src={review.user.profile.avatar.filename} width={52} />
+                <Image height={52} src={review.user.profile.avatar.filename.split('.').length === 2 ? review.user.profile.avatar.filename.split('.')[0] + '.webp': review.user.profile.avatar.filename} width={52} />
               </AspectRatio>
             </div>
             <div className={styles.content()}>

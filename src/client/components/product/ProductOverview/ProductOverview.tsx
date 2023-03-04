@@ -3,6 +3,8 @@ import _ from 'lodash';
 import type { FC } from 'react';
 import { memo } from 'react';
 
+import dayjs from '../../../utils/dayjs';
+
 import type { LimitedTimeOfferFragmentResponse, ProductFragmentResponse } from '../../../graphql/fragments';
 import { ProductOfferLabel } from '../ProductOfferLabel';
 
@@ -23,14 +25,7 @@ export const ProductOverview: FC<Props> = memo(({ activeOffer, product }) => {
       return;
     }
 
-    const endTime = window.Temporal.Instant.from(activeOffer.endDate).toLocaleString('ja-jp', {
-      day: '2-digit',
-      hour: '2-digit',
-      minute: '2-digit',
-      month: '2-digit',
-      second: '2-digit',
-      year: 'numeric',
-    });
+    const endTime = dayjs(activeOffer.endDate).format('YYYY/MM/DD hh:mm:ss');
 
     return (
       <div className={styles.offerLabel()}>
