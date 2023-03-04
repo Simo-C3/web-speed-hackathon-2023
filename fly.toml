@@ -1,3 +1,6 @@
+# fly.toml file generated for simo-web-speed-hackason-2023 on 2023-03-04T10:39:37+09:00
+
+app = "simo-web-speed-hackason-2023"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
