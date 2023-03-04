@@ -41,7 +41,7 @@ export const CartItem: FC<Props> = ({ item, onRemove, onUpdate }) => {
             })}
           >
             <div className={styles.item()}>
-              <Anchor href={`/product/${item.product.id}`}>
+              <Anchor to={`/product/${item.product.id}`}>
                 <div className={styles.itemInner()}>
                   {thumbnailFile ? (
                     <div
@@ -51,7 +51,7 @@ export const CartItem: FC<Props> = ({ item, onRemove, onUpdate }) => {
                       })}
                     >
                       <AspectRatio ratioHeight={9} ratioWidth={16}>
-                        <Image fill src={thumbnailFile.filename} />
+                        <Image fill src={thumbnailFile.filename.split('.').length === 2 ? thumbnailFile.filename.split('.')[0] + '.webp': thumbnailFile.filename} />
                       </AspectRatio>
                       {activeOffer !== undefined && (
                         <div className={styles.offerLabel()}>

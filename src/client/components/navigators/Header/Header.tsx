@@ -14,13 +14,13 @@ export const Header: FC = () => {
 
   return (
     <header className={styles.container()}>
-      <Anchor href="/">
+      <Anchor to="/">
         <div className={styles.logo()}>
           <Image src="/icons/logo.svg" />
         </div>
       </Anchor>
       {isAuthUser ? (
-        <Anchor data-testid="navigate-order" href={'/order'}>
+        <Anchor data-testid="navigate-order" to={'/order'}>
           <div className={styles.orderLink()}>
             <Icon color="#222222" height={20} type="FaShoppingCart" width={20} />
           </div>

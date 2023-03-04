@@ -21,12 +21,12 @@ export const ProductCard: FC<Props> = ({ product }) => {
   const price = activeOffer?.price ?? product.price;
 
   return (
-    <Anchor href={`/product/${product.id}`}>
+    <Anchor to={`/product/${product.id}`}>
       <div className={styles.inner()}>
         {thumbnailFile ? (
           <div className={styles.image()}>
             <AspectRatio ratioHeight={9} ratioWidth={16}>
-              <Image height={126} src={thumbnailFile.filename} width={224} />
+              <Image height={126} src={thumbnailFile.filename.split('.').length === 2 ? thumbnailFile.filename.split('.')[0] + '.webp': thumbnailFile.filename} width={224} />
             </AspectRatio>
           </div>
         ) : null}

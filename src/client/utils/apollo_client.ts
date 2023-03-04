@@ -33,7 +33,7 @@ const link = new HttpLink({ fetch: syncXhr });
 
 export const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
-  connectToDevTools: true,
+  connectToDevTools: false,
   defaultOptions: {
     mutate: {
       fetchPolicy: 'network-only',

@@ -6,6 +6,7 @@ import { Order } from '../../../pages/Order';
 import { OrderComplete } from '../../../pages/OrderComplete';
 import { ProductDetail } from '../../../pages/ProductDetail';
 import { Top } from '../../../pages/Top';
+import { Layout } from '../Layout'
 
 import { useScrollToTop } from './hooks';
 
@@ -13,12 +14,14 @@ export const Routes: FC = () => {
   useScrollToTop();
 
   return (
-    <Router.Routes>
-      <Router.Route element={<Top />} path="/" />
-      <Router.Route element={<ProductDetail />} path="/product/:productId" />
-      <Router.Route element={<Order />} path="/order" />
-      <Router.Route element={<OrderComplete />} path="/order/complete" />
-      <Router.Route element={<NotFound />} path="*" />
-    </Router.Routes>
+    <Layout>
+      <Router.Routes>
+        <Router.Route element={<Top />} path="/" />
+        <Router.Route element={<ProductDetail />} path="/product/:productId" />
+        <Router.Route element={<Order />} path="/order" />
+        <Router.Route element={<OrderComplete />} path="/order/complete" />
+        <Router.Route element={<NotFound />} path="*" />
+      </Router.Routes>
+    </Layout>
   );
 };

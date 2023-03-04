@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 
-import { Layout } from '../../components/application/Layout';
 import { AspectRatio } from '../../components/foundation/AspectRatio';
 import { DeviceType, GetDeviceType } from '../../components/foundation/GetDeviceType';
 import { PrimaryAnchor } from '../../components/foundation/PrimaryAnchor';
@@ -41,7 +40,6 @@ export const OrderComplete: FC = () => {
       <Helmet>
         <title>購入が完了しました</title>
       </Helmet>
-      <Layout>
         <GetDeviceType>
           {({ deviceType }) => (
             <WidthRestriction>
@@ -76,7 +74,6 @@ export const OrderComplete: FC = () => {
             </WidthRestriction>
           )}
         </GetDeviceType>
-      </Layout>
     </>
   );
 };

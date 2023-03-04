@@ -13,7 +13,7 @@ type Props = {
 };
 
 export const PrimaryAnchor: FC<Props> = ({ children, href, size }) => (
-  <Anchor href={href}>
+  <Anchor to={href}>
     <span
       className={classNames(styles.inner(), {
         [styles.container__lg()]: size === 'lg',

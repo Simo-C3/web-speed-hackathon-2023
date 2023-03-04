@@ -2,12 +2,10 @@ import type { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
 
-import { Layout } from '../../components/application/Layout';
 import { WidthRestriction } from '../../components/foundation/WidthRestriction';
 import { OrderForm } from '../../components/order/OrderForm';
 import { OrderPreview } from '../../components/order/OrderPreview';
 import { useAuthUser } from '../../hooks/useAuthUser';
-import { useOrder } from '../../hooks/useOrder';
 import { useSubmitOrder } from '../../hooks/useSubmitOrder';
 import { useUpdateCartItem } from '../../hooks/useUpdateCartItems';
 
@@ -19,7 +17,7 @@ export const Order: FC = () => {
   const { authUser, authUserLoading, isAuthUser } = useAuthUser();
   const { updateCartItem } = useUpdateCartItem();
   const { submitOrder } = useSubmitOrder();
-  const { order } = useOrder();
+  const order = authUser?.orders.find((order) => order.isOrdered === false);
 
   if (authUserLoading) {
     return null;
@@ -87,9 +85,7 @@ export const Order: FC = () => {
       <Helmet>
         <title>購入手続き</title>
       </Helmet>
-      <Layout>
         <WidthRestriction>{renderContents()}</WidthRestriction>
-      </Layout>
     </>
   );
 };

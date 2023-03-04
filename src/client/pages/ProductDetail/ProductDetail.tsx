@@ -2,7 +2,6 @@ import type { FC } from 'react';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';
 
-import { Layout } from '../../components/application/Layout';
 import { WidthRestriction } from '../../components/foundation/WidthRestriction';
 import { ProductMediaListPreviewer } from '../../components/product/ProductMediaListPreviewer';
 import { ProductOverview } from '../../components/product/ProductOverview';
@@ -25,11 +24,11 @@ export const ProductDetail: FC = () => {
 
   const { product } = useProduct(Number(productId));
   const { reviews } = useReviews(product?.id);
-  const { isAuthUser } = useAuthUser();
+  // const { isAuthUser } = useAuthUser();
   const { sendReview } = useSendReview();
   const { updateCartItem } = useUpdateCartItem();
   const handleOpenModal = useOpenModal();
-  const { amountInCart } = useAmountInCart(Number(productId));
+  const { amountInCart, isAuthUser } = useAmountInCart(Number(productId));
   const { activeOffer } = useActiveOffer(product);
 
   const handleSubmitReview = ({ comment }: { comment: string }) => {
@@ -54,7 +53,6 @@ export const ProductDetail: FC = () => {
           <title>{product.name}</title>
         </Helmet>
       )}
-      <Layout>
         <WidthRestriction>
           <div className={styles.container()}>
             <section className={styles.details()}>
@@ -79,7 +77,6 @@ export const ProductDetail: FC = () => {
             </section>
           </div>
         </WidthRestriction>
-      </Layout>
     </>
   );
 };

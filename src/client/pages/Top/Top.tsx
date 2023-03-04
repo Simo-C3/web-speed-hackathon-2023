@@ -1,7 +1,6 @@
 import type { FC } from 'react';
 import { Helmet } from 'react-helmet';
 
-import { Layout } from '../../components/application/Layout';
 import { ProductList } from '../../components/feature/ProductList';
 import { ProductHeroImage } from '../../components/product/ProductHeroImage';
 import { useFeatures } from '../../hooks/useFeatures';
@@ -22,7 +21,6 @@ export const Top: FC = () => {
       <Helmet>
         <title>買えるオーガニック</title>
       </Helmet>
-      <Layout>
         <div>
           <ProductHeroImage product={recommendation.product} title="今週のオススメ" />
 
@@ -37,7 +35,6 @@ export const Top: FC = () => {
             })}
           </div>
         </div>
-      </Layout>
     </>
   );
 };

@@ -19,7 +19,7 @@ export const MediaItem: FC<Props> = ({ file }) => {
 
   useEffect(() => {
     if (mediaType === 'image') {
-      return setImageSrc(file.filename);
+      return setImageSrc(file.filename.split('.').length === 2 ? file.filename.split('.')[0] + '.webp': file.filename);
     }
     loadThumbnail(file.filename).then((url) => setImageSrc(url));
   }, [file.filename, mediaType]);
