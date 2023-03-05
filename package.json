@@ -26,7 +26,6 @@
     "@types/koa-session": "5.10.6",
     "bcrypt": "5.1.0",
     "classnames": "2.3.2",
-    "core-js": "3.29.0",
     "currency-formatter": "1.5.9",
     "dayjs": "1.11.7",
     "formik": "2.2.9",
@@ -49,14 +48,11 @@
     "react-overlays": "5.2.1",
     "react-router-dom": "6.4.5",
     "recoil": "0.7.6",
-    "reflect-metadata": "0.1.13",
     "setimmediate": "1.0.5",
     "sqlite3": "5.1.4",
     "styled-components": "5.3.6",
-    "throttle-debounce": "5.0.0",
     "typeorm": "0.3.11",
-    "zipcode-ja": "0.0.7",
-    "zod": "3.20.6"
+    "zipcode-ja": "0.0.7"
   },
   "devDependencies": {
     "@babel/core": "7.20.5",

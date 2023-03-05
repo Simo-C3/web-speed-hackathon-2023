@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { throttle } from 'throttle-debounce';
+import { throttle } from '../../../../utils/throttle';
 
 const ITEM_MIN_WIDTH = 250 as const;
 

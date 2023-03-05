@@ -1,6 +1,6 @@
 import type { FC, ReactNode } from 'react';
 import { useEffect, useRef, useState } from 'react';
-import { throttle } from 'throttle-debounce';
+import { throttle } from '../../../utils/throttle';
 
 import * as styles from './WidthRestriction.styles';
 

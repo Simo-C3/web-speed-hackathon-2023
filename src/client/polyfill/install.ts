@@ -1,4 +1,3 @@
-import 'core-js';
 import 'setimmediate';
 
 declare global {

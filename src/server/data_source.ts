@@ -1,4 +1,3 @@
-import 'reflect-metadata';
 import { DataSource } from 'typeorm';
 
 import { FeatureItem } from '../model/feature_item';

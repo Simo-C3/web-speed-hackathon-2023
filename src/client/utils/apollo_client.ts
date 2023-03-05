@@ -29,11 +29,12 @@ const syncXhr: HttpOptions['fetch'] = (uri, options) => {
   });
 };
 
-const link = new HttpLink({ fetch: syncXhr });
+const link = new HttpLink({ fetch: syncXhr, uri: '/graphql' });
 
 export const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
   connectToDevTools: false,
+  queryDeduplication: false,
   defaultOptions: {
     mutate: {
       fetchPolicy: 'network-only',
@@ -42,10 +43,8 @@ export const apolloClient = new ApolloClient({
       fetchPolicy: 'network-only',
     },
     watchQuery: {
-      fetchPolicy: 'network-only',
+      fetchPolicy: 'cache-and-network',
     },
   },
-  link,
-  queryDeduplication: false,
-  uri: '/graphql',
+  link: link,
 });
