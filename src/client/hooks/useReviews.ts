@@ -20,7 +20,7 @@ export const useReviews = (productId: number | undefined) => {
     // サーバー負荷がなくなれば、すぐ読み込んでもよい
     const timer = setTimeout(() => {
       loadReviews();
-    }, 1000);
+    }, 0);
 
     return () => {
       clearTimeout(timer);
