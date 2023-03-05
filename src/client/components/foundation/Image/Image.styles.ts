@@ -2,6 +2,7 @@ import { css } from '@emotion/css';
 
 export const container = () => css`
   object-fit: cover;
+  height: 100%;
 `;
 
 export const container__fill = () => css`

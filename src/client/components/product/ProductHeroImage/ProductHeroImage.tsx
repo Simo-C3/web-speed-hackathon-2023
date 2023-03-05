@@ -49,7 +49,7 @@ export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
             <Anchor to={`/product/${product.id}`}>
               <div className={styles.container()}>
                 <AspectRatio ratioHeight={9} ratioWidth={16}>
-                  <img id="product-hero-image" className={styles.image()} src={imageDataUrl.split('.').length === 2 ? imageDataUrl.split('.')[0] + '.webp' : imageDataUrl} onError={() => {onErrorHandler()}} onLoad={() => {onLoadHandler()}} loading="lazy" />
+                  <img id="product-hero-image" className={styles.image()} src={ imageDataUrl.split('.')[0] + '.webp' } onError={() => {onErrorHandler()}} onLoad={() => {onLoadHandler()}} />
                 </AspectRatio>
 
                 <div className={styles.overlay()}>

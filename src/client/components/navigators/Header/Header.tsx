@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { memo } from 'react';
 
 import { useAuthUser } from '../../../hooks/useAuthUser';
 import { useOpenModal } from '../../../store/modal';
@@ -8,7 +9,7 @@ import { Image } from '../../foundation/Image';
 
 import * as styles from './Header.styles';
 
-export const Header: FC = () => {
+export const Header: FC = memo(() => {
   const { isAuthUser } = useAuthUser();
   const handleOpenModal = useOpenModal();
 
@@ -16,7 +17,7 @@ export const Header: FC = () => {
     <header className={styles.container()}>
       <Anchor to="/">
         <div className={styles.logo()}>
-          <Image src="/icons/logo.svg" />
+          <Image src="/icons/logo.svg" loading='eager' />
         </div>
       </Anchor>
       {isAuthUser ? (
@@ -36,4 +37,4 @@ export const Header: FC = () => {
       )}
     </header>
   );
-};
+});

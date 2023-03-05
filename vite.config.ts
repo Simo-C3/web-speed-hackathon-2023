@@ -47,7 +47,7 @@ export default defineConfig(async () => {
           terser()
         ],
       },
-      target: 'es2022',
+      target: 'modules',
       sourcemap: false,
     },
     plugins: [

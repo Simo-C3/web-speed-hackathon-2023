@@ -4,10 +4,13 @@ import { SignInModal } from '../../modal/SignInModal';
 import { SignUpModal } from '../../modal/SignUpModal';
 import { Providers } from '../Providers';
 import { Routes } from '../Routes';
+import { Layout } from '../Layout'
 
 export const App: FC = () => (
   <Providers>
-    <Routes />
+    <Layout>
+      <Routes />
+    </Layout>
     <SignInModal />
     <SignUpModal />
   </Providers>

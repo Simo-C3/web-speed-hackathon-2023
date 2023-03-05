@@ -10,8 +10,8 @@ export const NotFound: FC = () => {
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
-    const load = () => {
-      loadFonts();
+    const load = async () => {
+      await loadFonts();
       setIsReady(true);
     };
 
